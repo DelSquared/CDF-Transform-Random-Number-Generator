@@ -2,11 +2,16 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 n=5000
+#number of generated points
 UnifR=np.random.uniform(size=(1,n))
+#uniform array
 DistR=np.array([1,n])
+#output array radial
 UnifT=2*np.pi*np.random.uniform(size=(1,n))
+# output array angular
 x=np.arange(0,10,0.1)
 y=np.ones([100,1])/10
+#x-y arrays currently unused
 
 def ExpCDFinv (x, L):
     return -np.log(1-x)*L
@@ -14,6 +19,7 @@ def BellCDFinv (x, s, m):
     return (np.log((1/x)-1)*s)-m
 def InvSqCDFinv (x, k):
     return ((1/x)-1)/k
+#inverse CDF functions: exponential, "bell" (not a real Gaussian), and an inverse square law
 
 fig0=plt.figure()
 plt.scatter(UnifR*np.cos(UnifT),UnifR*np.sin(UnifT),marker=".")
@@ -55,3 +61,4 @@ plt.show()
 fig3=plt.figure()
 plt.plot(x,y)
 plt.show()
+#plots
